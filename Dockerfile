@@ -24,6 +24,7 @@ RUN pip install -U pip scipy numpy cython && \
                     joblib h5py theano tensorflow keras lasagne nolearn \
                     sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru \
                     opencv-python pillow gym[all] && \
+    pip install --upgrade https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
     python -m ipykernel.kernelspec
 
 RUN pip3 install -U pip scipy numpy cython && \
@@ -31,6 +32,7 @@ RUN pip3 install -U pip scipy numpy cython && \
                     joblib h5py theano tensorflow keras lasagne nolearn \
                     sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru \
                     opencv-python pillow gym[all] && \
+    pip3 install --upgrade https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
     python3 -m ipykernel.kernelspec
 
 RUN git clone --recursive https://github.com/dmlc/xgboost /tmp/xgboost && \
