@@ -15,4 +15,4 @@ This is the dockerfile with all ML stuff I use
         -p 8888:8888 \
         illusionww/jupyter-nn-tools
 
-More info (in source project)[https://github.com/windj007/docker-jupyter-keras-tools]
+More info [in source project](https://github.com/windj007/docker-jupyter-keras-tools)
