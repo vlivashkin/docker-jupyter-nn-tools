@@ -20,7 +20,7 @@ RUN apt-get install -yqq build-essential cmake gcc apt-utils wget unzip git vim 
     libjpeg-dev xvfb libav-tools xorg-dev libsdl2-dev swig \
     libboost-program-options-dev zlib1g-dev libboost-all-dev libboost-python-dev vowpal-wabbit
 
-RUN pip install -U pip scipy numpy cython && \
+RUN pip install -U scipy numpy cython && \
     pip install -U sklearn jupyter pandas xlrd matplotlib seaborn tqdm opencv-python pillow \
                     joblib h5py sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru && \
     python -m ipykernel.kernelspec
@@ -30,7 +30,7 @@ RUN pip install -U https://github.com/Theano/Theano/archive/master.zip && \
     pip install -U https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
     pip install -U tensorflow-gpu keras nolearn gym[all]
 
-RUN pip3 install -U pip scipy numpy cython && \
+RUN pip3 install -U scipy numpy cython && \
     pip3 install -U sklearn jupyter pandas xlrd matplotlib seaborn tqdm opencv-python pillow \
                     joblib h5py sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru && \
     python3 -m ipykernel.kernelspec
