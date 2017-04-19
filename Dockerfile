@@ -13,27 +13,32 @@ RUN dpkg-reconfigure locales
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
 RUN apt-get clean && apt-get update && apt-get -y upgrade
 
-RUN apt-get install -yqq build-essential cmake wget unzip git vim \
+RUN apt-get install -yqq build-essential cmake gcc apt-utils wget unzip git vim \
     python python-pip python-dev python3 python3-pip python3-dev \
     gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
-    libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev swig \
-    libboost-program-options-dev zlib1g-dev libboost-python-dev vowpal-wabbit
+    libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
+    libjpeg-dev xvfb libav-tools xorg-dev libsdl2-dev swig \
+    libboost-program-options-dev zlib1g-dev libboost-all-dev libboost-python-dev vowpal-wabbit
 
 RUN pip install -U pip scipy numpy cython && \
-    pip install -U sklearn jupyter pandas xlrd matplotlib seaborn tqdm \
-                    joblib h5py theano tensorflow keras lasagne nolearn \
-                    sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru \
-                    opencv-python pillow gym[all] && \
-    pip install --upgrade https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
+    pip install -U sklearn jupyter pandas xlrd matplotlib seaborn tqdm opencv-python pillow \
+                    joblib h5py sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru && \
     python -m ipykernel.kernelspec
 
+RUN pip install -U https://github.com/Theano/Theano/archive/master.zip && \
+    pip install -U https://github.com/Lasagne/Lasagne/archive/master.zip && \
+    pip install -U https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
+    pip install -U tensorflow-gpu keras nolearn gym[all]
+
 RUN pip3 install -U pip scipy numpy cython && \
-    pip3 install -U sklearn jupyter pandas xlrd matplotlib seaborn tqdm \
-                    joblib h5py theano tensorflow keras lasagne nolearn \
-                    sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru \
-                    opencv-python pillow gym[all] && \
-    pip3 install --upgrade https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
+    pip3 install -U sklearn jupyter pandas xlrd matplotlib seaborn tqdm opencv-python pillow \
+                    joblib h5py sexpdata vowpalwabbit nltk gensim pymorphy2 pymorphy2-dicts-ru && \
     python3 -m ipykernel.kernelspec
+
+RUN pip3 install -U https://github.com/Theano/Theano/archive/master.zip && \
+    pip3 install -U https://github.com/Lasagne/Lasagne/archive/master.zip && \
+    pip3 install -U https://github.com/yandexdataschool/AgentNet/archive/master.zip && \
+    pip3 install -U tensorflow-gpu keras nolearn gym[all]
 
 RUN git clone --recursive https://github.com/dmlc/xgboost /tmp/xgboost && \
     cd /tmp/xgboost && \
