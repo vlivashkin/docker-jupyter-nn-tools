@@ -12,7 +12,7 @@ This is the dockerfile with all ML stuff I use
 
     nvidia-docker run -ti --rm \
         -v `pwd`:/notebook \
-        -p 8888:8888 \
+        -p 8888:8888 -p 6006:6006 \
         illusionww/jupyter-nn-tools
 
 More info [in source project](https://github.com/windj007/docker-jupyter-keras-tools)
