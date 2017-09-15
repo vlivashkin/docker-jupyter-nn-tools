@@ -6,7 +6,8 @@ This is the dockerfile with all ML stuff I use
 
     git clone https://github.com/illusionww/docker-jupyter-nn-tools
     cd docker-jupyter-nn-tools
-    docker build -t illusionww/jupyter-nn-tools .
+    sudo chmod -R 777 .
+    sudo docker build -t illusionww/jupyter-nn-tools .
 
 ## Run
 
