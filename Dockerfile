@@ -34,13 +34,13 @@ RUN rm -rf opencv-3.2.0/
 
 
 RUN pip3 install -U pip cython joblib vowpalwabbit tqdm html5lib==0.999999999 && \
-    pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd matplotlib plotly seaborn \
-                    Pillow scikit-image imgaug \
+    pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
+                    matplotlib plotly seaborn Pillow scikit-image imgaug \
                     nltk gensim pymorphy2 pymorphy2-dicts-ru \
-					theano tensorflow-gpu keras h5py gym[all] \
-					xgboost catboost && \
+                    theano tensorflow-gpu keras h5py gym[all] \
+                    xgboost catboost && \
     python3 -m ipykernel.kernelspec && \
-	jupyter nbextension enable --py --sys-prefix widgetsnbextension
+    jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 RUN pip3 install -U https://github.com/Lasagne/Lasagne/archive/master.zip && \
     pip3 install -U https://github.com/yandexdataschool/AgentNet/archive/master.zip
