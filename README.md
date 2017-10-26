@@ -12,6 +12,6 @@ This is the dockerfile with all ML stuff I use
 ## Run
 
     nvidia-docker run -ti --rm \
-        -v /home/<USER_NAME>/Documents:/notebook -v /data:/data\
+        -v /home/<USER_NAME>/Documents:/notebook -v /data:/data \
         -p 8888:8888 -p 6006:6006 \
         illusionww/jupyter-nn-tools
