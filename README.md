@@ -14,7 +14,7 @@ sudo docker build -t illusionww/jupyter-nn-tools .
 
 ## Run
 ```bash
-nvidia-docker run -ti --rm \
+sudo nvidia-docker run -ti --rm \
     -v <YOUR HOST FOLDER FOR NOTEBOOKS>:/notebook -v <YOUR HOST FOLDER FOR DATA>:/data \
     -p <YOUR EXTERNAL PORT FOR JUPYTER>:8888 -p <YOUR EXTERNAL PORT FOR TENSORBOARD>:6006 \
     illusionww/jupyter-nn-tools
@@ -22,7 +22,7 @@ nvidia-docker run -ti --rm \
         
 Example:
 ```bash
-nvidia-docker run -ti --rm \
+sudo nvidia-docker run -ti --rm \
     -v /home/illusionww/Documents:/notebook -v /data:/data \
     -p 8888:8888 -p 6006:6006 \
     illusionww/jupyter-nn-tools
