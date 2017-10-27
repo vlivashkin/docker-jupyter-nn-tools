@@ -1,6 +1,8 @@
 # docker-jupyter-nn-tools
 
-This is the dockerfile with all ML stuff I use
+This is the dockerfile with all ML stuff I use.
+
+[Guide how to install ML environment on Ubuntu](https://github.com/illusionww/docker-jupyter-nn-tools/wiki/Installing-CUDA,-Docker-(%3F),-TensorFlow,-Keras-and-Jupyter-on-Ubuntu)
 
 ## Build from Scratch
 ```bash
