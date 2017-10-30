@@ -24,7 +24,7 @@ nvidia-docker run -ti --rm \
         
 Example:
 ```bash
-nvidia-docker run -ti --rm \
+NV_GPU=0 nvidia-docker run -ti --rm \
     -v /home/illusionww/Documents:/notebook -v /data:/data \
     -p 8888:8888 -p 6006:6006 \
     illusionww/jupyter-nn-tools
