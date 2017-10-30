@@ -13,6 +13,8 @@ sudo docker build -t illusionww/jupyter-nn-tools .
 ```
 
 ## Run
+Your user should be added to the `docker` group (`sudo usermod -a -G docker $USER`). Alternatively, you can use `sudo` to run the failed command as root. 
+
 ```bash
 sudo nvidia-docker run -ti --rm \
     -v <YOUR HOST FOLDER FOR NOTEBOOKS>:/notebook -v <YOUR HOST FOLDER FOR DATA>:/data \
