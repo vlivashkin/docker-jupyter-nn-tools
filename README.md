@@ -13,7 +13,7 @@ sudo docker build -t illusionww/jupyter-nn-tools .
 ```
 
 ## Run
-Your user should be added to the `docker` group (`sudo usermod -a -G docker $USER`). Alternatively, you can use `sudo` to run the failed command as root. 
+Your user should be added to the `docker` group (`sudo usermod -a -G docker $USER`). Alternatively, you can use `sudo` to run the failed command as root. If you want to run container only for one GPU (if you have several) you can add `NV_GPU=<GPU_NUM>` before command.
 
 ```bash
 nvidia-docker run -ti --rm \
