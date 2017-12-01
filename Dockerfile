@@ -33,17 +33,15 @@ WORKDIR ../../
 RUN rm -rf opencv-3.2.0/
 
 
-RUN pip3 install -U pip cython joblib vowpalwabbit tqdm html5lib==0.999999999 && \
+RUN pip3 install -U pip cython joblib vowpalwabbit tqdm && \
     pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
                     matplotlib plotly seaborn Pillow scikit-image imgaug \
                     nltk gensim pymorphy2[fast] pymorphy2-dicts-ru \
-                    theano tensorflow-gpu keras h5py gym[all] \
+                    tensorflow-gpu keras h5py gym[all] \
                     xgboost catboost && \
+    pip3 install -U html5lib==0.999999999 && \
     python3 -m ipykernel.kernelspec && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
-
-RUN pip3 install -U https://github.com/Lasagne/Lasagne/archive/master.zip && \
-    pip3 install -U https://github.com/yandexdataschool/AgentNet/archive/master.zip
 
 
 EXPOSE 8888 6006
