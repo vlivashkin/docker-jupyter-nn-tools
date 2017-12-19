@@ -5,10 +5,12 @@ MAINTAINER Vladimir Ivashkin illusionww@gmail.com
 RUN apt-get clean && apt-get update && apt-get upgrade -y
 RUN apt-get install -y build-essential cmake gcc apt-utils python3 python3-pip python3-dev && \
     apt-get install -y wget unzip git vim nano \
-    gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
-    libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
-    libjpeg-dev xvfb libav-tools xorg-dev libsdl2-dev swig \
-    libboost-program-options-dev zlib1g-dev libboost-all-dev libboost-python-dev
+        gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
+        libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
+        libjpeg-dev xvfb libav-tools xorg-dev libsdl2-dev swig \
+        libboost-program-options-dev zlib1g-dev libboost-all-dev libboost-python-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 	
 
 RUN apt-get install -y --no-install-recommends build-essential curl ca-certificates
