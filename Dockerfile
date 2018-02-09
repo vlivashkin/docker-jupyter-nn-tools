@@ -13,6 +13,7 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 	
 
+RUN apt-get update
 RUN apt-get install -y --no-install-recommends build-essential curl ca-certificates
 RUN apt-get install -y --no-install-recommends cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 RUN apt-get install -y --no-install-recommends python3-dev python3-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
