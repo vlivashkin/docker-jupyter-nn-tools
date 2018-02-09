@@ -40,8 +40,7 @@ RUN pip3 install -U pip cython joblib vowpalwabbit tqdm && \
     pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
                     matplotlib plotly seaborn Pillow scikit-image imgaug \
                     nltk gensim pymorphy2[fast] pymorphy2-dicts-ru \
-                    tensorflow-gpu keras h5py gym[all] \
-                    xgboost catboost && \
+                    tensorflow-gpu keras h5py xgboost catboost && \
     pip3 install -U html5lib==0.999999999 && \
     python3 -m ipykernel.kernelspec && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
