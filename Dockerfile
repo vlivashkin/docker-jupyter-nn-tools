@@ -2,9 +2,9 @@ FROM nvidia/cuda:8.0-cudnn6-devel
 
 MAINTAINER Vladimir Ivashkin illusionww@gmail.com
 
-RUN apt-get clean && apt-get update && apt-get upgrade -y
-RUN apt-get install -y build-essential cmake gcc apt-utils python3 python3-pip python3-dev && \
-    apt-get install -y wget unzip git vim nano \
+RUN apt-get clean && apt-get update && apt-get install -y
+        build-essential cmake gcc apt-utils python3 python3-pip python3-dev && \
+        wget unzip git vim nano \
         gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
         libfreetype6-dev libpng12-dev pkg-config libxml2-dev libxslt-dev \
         libjpeg-dev xvfb libav-tools xorg-dev libsdl2-dev swig \
