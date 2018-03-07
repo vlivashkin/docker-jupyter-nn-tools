@@ -11,42 +11,15 @@ RUN apt-get clean && apt-get update && apt-get install -y \
         libboost-program-options-dev zlib1g-dev libboost-all-dev libboost-python-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-	
-
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends build-essential curl ca-certificates
-RUN apt-get install -y --no-install-recommends cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-RUN apt-get install -y --no-install-recommends python3-dev python3-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
-RUN apt-get install -y --no-install-recommends ffmpeg x264
-
-RUN curl -OL "https://github.com/opencv/opencv/archive/3.2.0.tar.gz"
-RUN tar -zxvf 3.2.0.tar.gz && rm -rf 3.2.0.tar.gz
-WORKDIR opencv-3.2.0/
-RUN rm -rf build/ && mkdir build/
-WORKDIR build/
-
-RUN cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D PYTHON3_EXECUTABLE=/usr/bin/python3 -D PYTHON_INCLUDE_DIR=/usr/include/python3.5 -D PYTHON_INCLUDE_DIR2=/usr/include/x86_64-linux-gnu/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include/ ..
-RUN make -j$(($(nproc) + 1))
-RUN make install
-
-RUN echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf
-RUN ldconfig
-
-WORKDIR ../../
-RUN rm -rf opencv-3.2.0/
-
 
 RUN pip3 install -U pip cython joblib vowpalwabbit tqdm && \
     pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
-                    matplotlib plotly seaborn Pillow scikit-image imgaug \
+                    matplotlib plotly seaborn Pillow scikit-image imgaug opencv-python opencv-contrib-python \
                     nltk gensim pymorphy2[fast] pymorphy2-dicts-ru \
                     tensorflow-gpu keras h5py xgboost catboost && \
     pip3 install -U html5lib==0.999999999 && \
     python3 -m ipykernel.kernelspec && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
-
-
-EXPOSE 8888 6006
 
 ADD jupyter_notebook_config.py /jupyter/jupyter_notebook_config.py
 ENV JUPYTER_CONFIG_DIR="/jupyter"
