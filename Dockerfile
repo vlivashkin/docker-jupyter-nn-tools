@@ -1,8 +1,15 @@
-FROM nvidia/cuda:9.0-cudnn7-devel
+FROM nvidia/cuda:9.0-devel-ubuntu16.04
 
 MAINTAINER Vladimir Ivashkin illusionww@gmail.com
 
-RUN apt-get clean && apt-get update && apt-get install -y \
+ENV CUDNN_VERSION 7.0.0.4
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+            libcudnn7=$CUDNN_VERSION-1+cuda9.0 \
+            libcudnn7-dev=$CUDNN_VERSION-1+cuda9.0 && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y \
         build-essential cmake gcc apt-utils python3 python3-pip python3-dev \
         wget unzip git vim nano \
         gfortran libatlas-base-dev libatlas-dev libatlas3-base libhdf5-dev \
