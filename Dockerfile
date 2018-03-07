@@ -2,7 +2,7 @@ FROM nvidia/cuda:9.0-devel-ubuntu16.04
 
 MAINTAINER Vladimir Ivashkin illusionww@gmail.com
 
-ENV CUDNN_VERSION 7.0.0.4
+ENV CUDNN_VERSION 7.0.5.15
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
             libcudnn7=$CUDNN_VERSION-1+cuda9.0 \
