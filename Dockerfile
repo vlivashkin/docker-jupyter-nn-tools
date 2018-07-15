@@ -19,11 +19,11 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -U pip cython joblib vowpalwabbit tqdm && \
+RUN pip3 install -U pip cython joblib vowpalwabbit tqdm jsonlines && \
     pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
                     matplotlib plotly seaborn Pillow scikit-image imgaug opencv-python opencv-contrib-python \
-                    nltk gensim pymorphy2[fast] pymorphy2-dicts-ru \
-                    tensorflow-gpu keras h5py xgboost catboost && \
+                    nltk gensim pymorphy2[fast] pymorphy2-dicts-ru h5py xgboost catboost \
+                    tensorflow-gpu keras torch torchvision tensorboardX && \
     pip3 install -U html5lib==0.999999999 && \
     python3 -m ipykernel.kernelspec && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
