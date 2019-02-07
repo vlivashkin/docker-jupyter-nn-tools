@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -U pip==9.0.3 cython joblib vowpalwabbit tqdm jsonlines && \
+RUN pip3 install -U pip cython joblib vowpalwabbit tqdm jsonlines && \
     pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
                     matplotlib plotly seaborn Pillow scikit-image imgaug opencv-python opencv-contrib-python \
                     nltk gensim pymorphy2[fast] pymorphy2-dicts-ru h5py xgboost catboost \
