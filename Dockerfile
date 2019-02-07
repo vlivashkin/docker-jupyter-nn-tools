@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-devel-ubuntu18.04
 
 MAINTAINER Vladimir Ivashkin illusionww@gmail.com
 
