@@ -2,11 +2,11 @@ FROM nvidia/cuda:10.0-devel-ubuntu18.04
 
 MAINTAINER Vladimir Ivashkin illusionww@gmail.com
 
-ENV CUDNN_VERSION 7.0.5.15
+ENV CUDNN_VERSION 7.4.2.24
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-            libcudnn7=$CUDNN_VERSION-1+cuda9.0 \
-            libcudnn7-dev=$CUDNN_VERSION-1+cuda9.0 && \
+            libcudnn7=$CUDNN_VERSION-1+cuda10.0 \
+            libcudnn7-dev=$CUDNN_VERSION-1+cuda10.0 && \
     rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y \
