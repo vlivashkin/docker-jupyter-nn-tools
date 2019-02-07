@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install -U pip && \
-    pip3 install -U cython joblib vowpalwabbit tqdm jsonlines && \
+    pip3 install -U cython joblib vowpalwabbit tqdm jsonlines beautifulsoup4 && \
     pip3 install -U jupyter scipy numpy scikit-learn pandas xlrd pandas-profiling \
                     matplotlib plotly seaborn Pillow scikit-image imgaug opencv-python opencv-contrib-python \
                     nltk gensim pymorphy2[fast] pymorphy2-dicts-ru h5py xgboost catboost \
